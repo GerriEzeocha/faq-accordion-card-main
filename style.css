@@ -1,0 +1,252 @@
+:root {
+    /*Text colors*/
+    --ddBlue: hsl(238, 29%, 16%);
+    --sRed: hsl(14, 88%, 65%);
+    --vdgrayishBlue: hsl(237, 12%, 33%);
+    --dgrayishBlue: hsl(240, 6%, 50%);
+
+    /*background colors*/
+    --sViolet: hsl(273, 75%, 66%);
+    --sBlue: hsl(240, 73%, 65%);
+
+    /*dividers*/
+    --lgBlue: hsl(240, 5%, 91%);
+}
+
+html{
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;;
+}
+body {
+    font-family: 'Kumbh Sans', sans-serif;
+    font-size: 12px;
+    max-width: 1440px;
+    min-width: 375px;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, var(--sViolet), var(--sBlue)) no-repeat center fixed;
+    background-size: cover;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    display: flex;
+    height: 31.875rem;
+    width: 57.8125rem;
+    align-self: center;
+    position: relative;
+    top: 4.875rem;
+    border-radius: 1rem;
+}
+
+/*leftside of card*/
+.leftSide {
+    background: url(images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    overflow: clip;
+    background-position: 115% 65%;
+
+}
+
+ .mobile-top {
+    display: none;
+}
+
+.box {
+    position: absolute;
+    top: 44%;
+    left: -10%;
+    z-index: 1;
+}
+
+.woman {
+    position: relative;
+    top: 16%;
+    left: -17%;
+    z-index: 0;
+}
+
+.woman img {
+    clip: rect(0, 0);
+}
+
+/*rightside of card*/
+.rightSide {
+    padding-right: 2.4375rem;
+    overflow: clip;
+}
+
+.rightSide h1 {
+    color: var(--vdgrayishBlue);
+    font-size: 1.875rem;
+    width: 100%;
+    padding-top: 2.5rem;
+    padding-bottom: 0.9375rem;
+    padding-left: 1.0625rem;
+
+}
+
+/*collapsible content*/
+.collapsible {
+    margin: 1.25rem;
+}
+.collapsible > input[name="collapse"] {
+    display: none;
+}
+
+.collapsible .content {
+    font-weight: 300;
+    overflow: hidden;
+    height: 0;
+    transition: 0.5s;
+}
+
+.handle img{
+    float: right;
+}
+
+.collapsible .handle label::after {
+    content: url(images/icon-arrow-down.svg);
+    float: right;
+    transition: 0.4s;
+}
+
+.collapsible label:hover,
+.collapsible label:focus {
+    color: var(--sRed);
+    cursor: pointer;
+}
+
+.collapsible > input[name="collapse"]:checked ~ .handle label{
+    font-weight: 600;
+}
+
+.collapsible > input[name="collapse"]:checked ~ .handle label::after {
+    transform: rotate(180deg);
+    transform-origin: center;
+    transition: 0.4s;
+}
+
+.collapsible > input[name="collapse"]:checked ~ .content{
+    height: 2.8125rem;
+    transition: height 0.5s;
+}
+
+.collapsibles {
+    overflow-y: scroll;
+}
+
+/*Horizontal line*/
+.divider {
+    color: var(--lgBlue);
+    font-size: x-large;
+    border-top: 0px solid gray;
+}
+
+/*formatting scrollable content & scrollbar*/
+.allC {
+    overflow-y: scroll;
+    height: 330px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.rightSide .allC::-webkit-scrollbar {
+    display: none;
+}
+
+
+@media all and (max-width: 800px) {
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        width: 36.875rem;
+        height: 37.5rem;
+        margin-top: 3.1875rem;
+    }
+
+    .allC {
+        margin-left: 1.4375;
+        margin-right: -1.3125rem;
+    }
+
+    .leftSide {
+        display: none;
+    }
+
+     .mobile-top {
+        display: inline-flex;
+        height: 4.5625rem;
+    }
+
+    .mobileBG {
+        position: relative;
+        left: 27%;
+        bottom: -0.5625;
+    }
+
+    .mobileWm {
+        position: relative;
+        top: -6.8125rem;
+        left: -6.375rem;
+    }
+
+    .leftSide::before {
+        content: url(images/illustration-woman-online-mobile.svg);
+    }
+
+    .rightSide {
+        width: 37.5rem;
+    }
+
+    .rightSide h1, section{
+        text-align: center;
+       
+    }
+
+    .attribution {
+        flex: 1
+    }
+}
+
+@media all and (max-width: 500px) {
+
+    .container {
+        width: 24.375rem;
+        
+    }
+    .rightSide h1, section{
+       width: 19.3125rem;
+    }
+    .rightSide h1 {
+        margin-left: 1.8125rem;
+    }
+
+    .mobileBG {
+        position: relative;
+        left: 4.25rem;
+        top: -0.1875rem;
+
+    }
+
+    .mobileWm {
+        position: relative;
+        left: -12.625rem;
+    }
+
+}
+
+/*footer*/
+.attribution {
+    align-self: center;
+    position: relative;
+    bottom: -17%;
+    color: var(--lgBlue);
+}
+.attribution a {
+    text-decoration: none;
+    color: var(--lgBlue);
+}
